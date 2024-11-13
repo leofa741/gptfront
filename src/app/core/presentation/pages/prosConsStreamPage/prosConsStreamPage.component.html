@@ -1,0 +1,37 @@
+<div class="chat-container">
+  <div #chatMessages class="chat-messages">
+    <div class="chat-messages__header">
+      <h1 class="chat-messages__title">Pros y Contras Stream</h1>
+    </div>
+
+    @for (message of messages(); track message.text) {
+      @if (message.isGpt) {
+        <app-gpt-message [text]="message.text" />
+      } @else {
+        <app-mi-messages [text]="message.text" />
+      }
+    }
+  </div>
+
+  <!-- Mostrar el loader solo si isTyping es true -->
+  <app-typing-loader *ngIf="isTyping" />
+
+  <!-- Caja de texto para ingresar el mensaje -->
+  <app-text-messages-box
+    placeholder="En que puedo ayudarte"
+    (onMessage)="handleMessage($event)"
+    (input)="onTyping($event)"
+  />
+
+  <!-- Botón para cancelar el stream -->
+  <button  class="chat-container__cancel-button" (click)="cancelStream()"> 
+    Cancelar   
+  </button>
+
+  <!-- Botón para finalizar el stream -->
+
+
+
+
+
+</div>

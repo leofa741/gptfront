@@ -1,0 +1,52 @@
+<main class="flex flex-row mt-7">
+  <nav
+    class="hidden sm:flex flex-col ml-5 w-[370px] min-h-[calc(100vh-3.0rem)] max-h-[calc(100vh-3.0rem)] bg-white bg-opacity-10 p-5 rounded-3xl overflow-y-auto shadow-lg border border-opacity-30 border-gray-400 vintage-background"
+  >
+    <h1
+      class="font-bold text-lg lg:text-3xl bg-gradient-to-br from-white via-white/50 bg-clip-text text-transparent vintage-text"
+    >
+      App GPT<span class="text-indigo-500">.</span>
+    </h1>
+    <!-- <span class="text-xl">Bienvenido</span> -->
+
+    <div class="border-gray-700 border my-3"></div>
+
+    <!-- Nav Links -->
+    @for (route_r of routesx ;track route_r.path){
+      <app-sidebar-menu-item
+        [description]="route_r.data!['description']"
+        [icon]="route_r.data!['icon']"       
+        [title]="route_r.data!['title']"
+        [path]="route_r.path!"
+      />
+    }
+    <!-- End Nav Links -->
+  </nav>
+
+  <section
+    class="mx-3 sm:mx-20 flex flex-col w-full h-[calc(100vh-50px)] bg-white bg-opacity-40 p-5 rounded-3xl shadow-lg border border-opacity-30 border-gray-400 vintage-background"
+  >
+    <div class="flex h-full flex-row">
+      <div class="flex flex-col flex-auto p-1">
+        <router-outlet />
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+  /* Añadir un filtro y textura vintage */
+  .vintage-background {
+    background: linear-gradient(135deg, rgba(255, 235, 204, 0.2), rgba(255, 222, 173, 0.3)), url('https://www.transparenttextures.com/patterns/white-diamond.png');
+    background-blend-mode: multiply;
+  }
+
+  .vintage-text {
+    filter: sepia(0.3) contrast(1.2);
+  }
+
+  /* Opcionalmente, puedes añadir un filtro general para toda la página */
+  body {
+    filter: sepia(0.1) contrast(1.1) brightness(0.9);
+  }
+</style>

@@ -1,0 +1,32 @@
+<div class="mb-4 flex items-start space-x-3">
+
+    <div class="bg-indigo-900 p-3 rounded-full text-white">
+        <i class="fas fa-user"></i> <!-- Ícono de usuario -->
+      </div>
+
+
+    <div class="bg-indigo-900 p-3 rounded-xl max-w-xs fade-in text-white">
+     <!-- <p> {{text}}</p> -->
+     <p>{{message}}</p>
+
+     @if(errors.length > 0){
+        <p>{{cantidad_errores}} errores encontrados</p>
+     }
+     <ul>
+
+          @for(error of errors ;track $index){
+            <li>{{error}}</li>
+
+          }@empty {
+            <li>No hay errores</li>
+          }
+
+
+     </ul>
+
+
+
+    </div>
+
+
+  </div>

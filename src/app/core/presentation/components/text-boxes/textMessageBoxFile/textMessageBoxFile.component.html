@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="handleSubmit()" class="border-t border-gray-300 p-4 bg-white bg-opacity-5 flex">
+
+  <div class="relative">
+    <button
+      class="btn-primary flex items-center space-x-2 mr-2 bg-gray-300 text-gray-800 p-3 rounded-md vintage-button hover:bg-gray-400 duration-300 ease-in-out"
+      [disabled]="form.invalid"
+      (click)="fileInput.click()"
+    >
+      <i class="fas fa-paperclip"></i>
+    </button>
+    
+    <input 
+      type="file" 
+      class="absolute inset-0 opacity-0 cursor-pointer" 
+      #fileInput
+      (change)="onFileSelected($event)" 
+    />
+  </div>
+
+  <input 
+    type="text"
+    class="flex-1 border border-gray-600 rounded-lg p-2 mr-2 focus:outline-none focus:ring focus:ring-indigo-400 text-black"
+    [placeholder]="placeholder"
+    formControlName="prompt"
+    [autocomplete]="disableCorrections? 'on' :'off'" 
+    [spellcheck]="disableCorrections? 'on' :'off'"
+  >
+
+  <button
+    class="btn-primary flex items-center space-x-2 bg-gray-300 text-gray-800 p-3 rounded-md vintage-button hover:bg-gray-400 duration-300 ease-in-out"
+    [disabled]="form.invalid"
+    type="submit"
+  >
+    <i class="fas fa-paper-plane"></i>
+    <span>Enviar</span>
+  </button>
+</form>

@@ -1,0 +1,45 @@
+<div class="chat-container">
+    <div class="chat-messages">
+  
+      <app-gpt-message text="en que puedo ayudarme" />  
+  
+      <app-mi-messages text="en esto podes ayudarme" />     
+  
+      <!-- Agrega más mensajes aquí -->
+    </div>  
+  
+     <!-- Mostrar el loader solo si isTyping es true -->
+     <app-typing-loader *ngIf="isTyping" />
+  <!-- 
+     <app-text-messages-box
+       placeholder="En que puedo ayudarte"
+       (onMessage)="handleMessage($event)"
+       (input)="onTyping($event)" 
+     /> -->
+  
+    <!--  <app-text-message-box-file
+     placeholder="En que puedo ayudarte"
+     (onMessage)="handleMessageWithFile($event)"
+     (input)="onTyping($event)"
+     /> -->
+  
+     @for (message of messages(); track $index) {
+      @if (message.isGpt) {
+        <app-gpt-message [text]="message.text" />
+      }@else {
+        
+        <app-mi-messages [text]="message.text" />
+      }
+  
+     }
+     
+     <app-text-message-box-select 
+     placeholder="En que puedo ayudarte"
+     [o_ptions]="[{ id:'1',text:'1'},{ id:'2',text:'2'}]"
+     (onMessage)="handleMessageWithSelect($event)"
+     (input)="onTyping($event)"    
+     /> 
+    
+  </div>
+  
+  <!-- overflow-scroll -->

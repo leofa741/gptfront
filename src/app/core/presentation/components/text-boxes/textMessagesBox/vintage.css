@@ -1,0 +1,24 @@
+
+.vintage-button {
+    background: linear-gradient(135deg, rgba(255, 235, 204, 0.2), rgba(255, 222, 173, 0.4));
+    border: 1px solid rgba(170, 170, 170, 0.4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    filter: sepia(0.2) contrast(1.1);
+    transition: all 0.3s ease-in-out; /* Animación suave */
+  }
+
+  .vintage-button i {
+    filter: sepia(0.5) contrast(1.2);
+    transition: transform 0.3s ease-in-out; /* Transición para el ícono */
+  }
+
+  .vintage-button:hover {
+    background: linear-gradient(135deg, rgba(255, 222, 173, 0.4), rgba(240, 202, 152, 0.5)); /* Cambiar el fondo */
+    transform: scale(1.05); /* Agrandar ligeramente el botón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Agregar más sombra */
+    filter: brightness(1.1);
+  }
+
+  .vintage-button:hover i {
+    transform: translatey(-5px) translatex(5px); /* Efecto de movimiento en el ícono */
+  }
